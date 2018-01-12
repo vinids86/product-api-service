@@ -37,7 +37,7 @@ public class ProductApiController {
             Principal currentUser) {
 
         LOG.info("ProductApi: User={}, Auth={}, called with productId={}", currentUser.getName(), authorizationHeader, productId);
-        URI uri = loadBalancer.choose("composite-product-service").getUri();
+        URI uri = loadBalancer.choose("product-composite").getUri();
         String url = uri.toString() + "/product-composite/" + productId;
         LOG.debug("GetProductComposite from URL: {}", url);
 
